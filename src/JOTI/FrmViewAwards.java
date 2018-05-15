@@ -1,0 +1,557 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package JOTI;
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableRowSorter;
+
+/**
+ * Swing class to view the awards for specific people
+ *
+ * @author Andrew Whitelaw
+ */
+public class FrmViewAwards extends javax.swing.JFrame {
+
+    private AwardTableModel allAwardModel;
+    private AwardTableModel uniqueAwardModel;
+
+    /**
+     * Creates new form ViewAwards
+     */
+    public FrmViewAwards() {
+        //super(parent, modal);
+        initComponents();
+        setLocationRelativeTo(null);
+        this.initFields();
+    }
+
+    /**
+     * Constructor for a supplied Person Object
+     *
+     * @param myPerson Person object
+     */
+    public FrmViewAwards(Person myPerson) {
+        this();
+        this.surnameCombo.setSelectedItem(myPerson.getSurName());
+        this.forenameCombo.setSelectedItem(myPerson.getForeName());
+        this.sectionCombo.setSelectedItem(myPerson.getMySection().getMySectionName());
+    }
+
+    /**
+     * Clear the name fields and inserts a list of unique surnames into the
+     * Surname combo
+     */
+    private void initFields() {
+        //Load the Surname lists
+        PersonManager pers = new PersonManager();
+        List<String> surnames = pers.getSurnameList();
+        //Step through the List
+        for (String str : surnames) {
+            //add the surname to the combo
+            this.surnameCombo.addItem(str);
+        }
+        this.surnameCombo.setSelectedItem(null);
+        this.sectionCombo.setSelectedItem(null);
+        this.forenameCombo.removeAllItems();
+    }
+
+    private void autosizeTableColumns(JTable table) {
+        for (int column = 0; column < table.getColumnCount(); column++) {
+            TableColumn tableColumn = table.getColumnModel().getColumn(column);
+            int preferredWidth = tableColumn.getMinWidth();
+            int maxWidth = tableColumn.getMaxWidth();
+
+            for (int row = 0; row < table.getRowCount(); row++) {
+                TableCellRenderer cellRenderer = table.getCellRenderer(row, column);
+                Component c = table.prepareRenderer(cellRenderer, row, column);
+                int width = c.getPreferredSize().width + table.getIntercellSpacing().width;
+                preferredWidth = Math.max(preferredWidth, width);
+                //  We've exceeded the maximum width, no need to check other rows
+                if (preferredWidth >= maxWidth) {
+                    preferredWidth = maxWidth;
+                    break;
+                }
+            }
+            tableColumn.setPreferredWidth(preferredWidth);
+        }
+    }
+
+    private void initTable() {
+        Awards awds = new Awards(this.getPerson());
+        allAwardModel = new AwardTableModel();
+        allAwardModel.add(awds.getAllAwardList());
+        this.jAllContactsTable.setModel(allAwardModel);
+        jAllContactsTable.setShowHorizontalLines(false);
+        jAllContactsTable.setShowVerticalLines(false);
+        jAllContactsTable.setRowMargin(0);
+        jAllContactsTable.setIntercellSpacing(new Dimension(0, 0));
+        jAllContactsTable.setFillsViewportHeight(true);
+        jAllContactsTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        TableRowSorter<AwardTableModel> awardSorter = new TableRowSorter<>(allAwardModel);
+        jAllContactsTable.setRowSorter(awardSorter);
+        this.autosizeTableColumns(jAllContactsTable);
+        //Unique Contacts Table
+        uniqueAwardModel = new AwardTableModel();
+        uniqueAwardModel.add(awds.getUniAwardList());
+        this.jUniqueContacts.setModel(uniqueAwardModel);
+        jUniqueContacts.setShowHorizontalLines(false);
+        jUniqueContacts.setShowVerticalLines(false);
+        jUniqueContacts.setRowMargin(0);
+        jUniqueContacts.setIntercellSpacing(new Dimension(0, 0));
+        jUniqueContacts.setFillsViewportHeight(true);
+        jUniqueContacts.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        TableRowSorter<AwardTableModel> uniAwardSorter = new TableRowSorter<>(uniqueAwardModel);
+        jUniqueContacts.setRowSorter(uniAwardSorter);
+        this.autosizeTableColumns(jUniqueContacts);
+
+        //sort tables
+        jAllContactsTable.getRowSorter().toggleSortOrder(0);
+        jAllContactsTable.getRowSorter().toggleSortOrder(0);
+        jUniqueContacts.getRowSorter().toggleSortOrder(0);
+        jUniqueContacts.getRowSorter().toggleSortOrder(0);
+    }
+
+    private void clearAwardsFields() {
+        this.txtAlphabetAward.setText("");
+        this.txtCommonwealth.setText("");
+    }
+
+    /**
+     * Updates the form with all the awards that have been achieved.
+     *
+     * @param evt event generated by form interaction
+     */
+    private void updateAwards(java.awt.event.ActionEvent evt) {
+        this.clearAwardsFields();
+        if (this.personValid()) {
+            //Get person object
+            Person pers = this.getPerson();
+            Awards awd = new Awards(pers);
+            if (awd.getContinentAward()) {
+                this.checkContinentAward.setSelected(true);
+            } else {
+                this.checkContinentAward.setSelected(false);
+            }
+            this.txtAlphabetAward.setText(awd.getAlphabetAward());
+            //populate the Commonwealth award
+            this.txtCommonwealth.setText(awd.getCommonwealthString(pers));
+            this.initTable();
+        }
+    }
+
+    /**
+     * Reads combos and returns a Person based on the data
+     *
+     * @return Person object
+     */
+    private Person getPerson() {
+        String fore = this.forenameCombo.getSelectedItem().toString();
+        String sur = this.surnameCombo.getSelectedItem().toString();
+        String sect = this.sectionCombo.getSelectedItem().toString();
+        Person myPers = new PersonManager().getPerson(fore, sur, sect);
+        return myPers;
+    }
+
+    /**
+     * Returns False if any person combo is null
+     *
+     * @return boolean
+     */
+    private Boolean personValid() {
+        Boolean isValid = false;
+        if ((this.forenameCombo.getSelectedItem() != null)
+                && (this.surnameCombo.getSelectedItem() != null)
+                && (this.sectionCombo.getSelectedItem() != null)) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    /**
+     * Populates the SectionCombo text field with data from the Forename and
+     * Surname combos
+     *
+     * @param evt Calling event
+     */
+    private void updateSection(java.awt.event.ActionEvent evt) {
+        String mySurname = this.surnameCombo.getSelectedItem().toString();
+        if (this.forenameCombo.getSelectedItem() != null) {
+            String myForename = this.forenameCombo.getSelectedItem().toString();
+            //Clear the section drop-down
+            this.sectionCombo.removeAllItems();
+            //Get the list of people
+            PersonManager pers = new PersonManager();
+
+            List<String> sections = pers.getSectionsforNames(myForename, mySurname);
+            for (String str : sections) {
+                this.sectionCombo.addItem(str);
+            }
+        }
+    }
+
+    /**
+     * Populates the Forename text field with data from the Surname combo
+     *
+     * @param evt Calling event
+     */
+    private void updateForename(java.awt.event.ActionEvent evt) {
+        String mySurname = this.surnameCombo.getSelectedItem().toString();
+        //Clear the forename combo
+        this.forenameCombo.removeAllItems();
+        //Get the list of people
+        PersonManager pers = new PersonManager();
+
+        List<String> forenames = pers.getForenamesforSurname(mySurname);
+        for (String str : forenames) {
+            this.forenameCombo.addItem(str);
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jCheckBox1 = new javax.swing.JCheckBox();
+        surnameCombo = new javax.swing.JComboBox();
+        forenameLabel = new javax.swing.JLabel();
+        surnameLabel = new javax.swing.JLabel();
+        sectionCombo = new javax.swing.JComboBox();
+        forenameCombo = new javax.swing.JComboBox();
+        sectionLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        checkContinentAward = new javax.swing.JCheckBox();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jAllContactsTable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jUniqueContacts = new javax.swing.JTable();
+        txtAlphabetAward = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        btnCreateCertificate = new javax.swing.JButton();
+        txtCommonwealth = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+
+        jCheckBox1.setText("jCheckBox1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        surnameCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                surnameComboActionPerformed(evt);
+            }
+        });
+
+        forenameLabel.setText("Forename");
+
+        surnameLabel.setText("Surname");
+
+        sectionCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sectionComboMouseClicked(evt);
+            }
+        });
+        sectionCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sectionComboActionPerformed(evt);
+            }
+        });
+
+        forenameCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forenameComboActionPerformed(evt);
+            }
+        });
+
+        sectionLabel.setText("Section");
+
+        jLabel1.setText("Continent Award");
+        jLabel1.setToolTipText("Has made contact with at least one country in each of the five continents");
+
+        checkContinentAward.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkContinentAwardActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("All Contact Levels Attained"));
+
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(288, 240));
+
+        jAllContactsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jAllContactsTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jScrollPane7.setViewportView(jAllContactsTable);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Unique Country Contact Levels Attained"));
+
+        jUniqueContacts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(jUniqueContacts);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel8.setText("Alphabet Award");
+
+        btnCreateCertificate.setText("Generate Certificate");
+        btnCreateCertificate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateCertificateActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Commonwealth Award");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(surnameLabel)
+                            .addComponent(sectionLabel))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sectionCombo, 0, 213, Short.MAX_VALUE)
+                            .addComponent(surnameCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCreateCertificate))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(forenameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(forenameCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(checkContinentAward)
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel9))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txtCommonwealth, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAlphabetAward, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(20, 20, 20))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(surnameLabel)
+                    .addComponent(forenameLabel)
+                    .addComponent(forenameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(surnameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sectionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreateCertificate)
+                    .addComponent(sectionLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(checkContinentAward)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAlphabetAward, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtCommonwealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jPanel2.getAccessibleContext().setAccessibleName("Unique Contact Levels Attained");
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void surnameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnameComboActionPerformed
+        if (this.surnameCombo.getSelectedItem() == null) {
+        } else {
+            this.updateForename(evt);
+        }
+    }//GEN-LAST:event_surnameComboActionPerformed
+
+    private void sectionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectionComboActionPerformed
+        this.updateAwards(evt);
+    }//GEN-LAST:event_sectionComboActionPerformed
+
+    private void forenameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forenameComboActionPerformed
+        if (this.forenameCombo.getSelectedItem() == null) {
+        } else {
+            this.updateSection(evt);
+        }
+    }//GEN-LAST:event_forenameComboActionPerformed
+
+    private void checkContinentAwardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkContinentAwardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkContinentAwardActionPerformed
+
+    private void sectionComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sectionComboMouseClicked
+    }//GEN-LAST:event_sectionComboMouseClicked
+
+    private void btnCreateCertificateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCertificateActionPerformed
+        if (this.personValid()) {
+            //Get person object
+            Person pers = this.getPerson();
+            List<Person> myList = new ArrayList();
+            myList.add(pers);
+            new Certificate(myList);
+        }
+
+
+    }//GEN-LAST:event_btnCreateCertificateActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmViewAwards.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmViewAwards.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmViewAwards.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmViewAwards.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmViewAwards().setVisible(true);
+            }
+        });
+    }
+    private Jambo myJambo;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateCertificate;
+    private javax.swing.JCheckBox checkContinentAward;
+    private javax.swing.JComboBox forenameCombo;
+    private javax.swing.JLabel forenameLabel;
+    private javax.swing.JTable jAllContactsTable;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTable jUniqueContacts;
+    private javax.swing.JComboBox sectionCombo;
+    private javax.swing.JLabel sectionLabel;
+    private javax.swing.JComboBox surnameCombo;
+    private javax.swing.JLabel surnameLabel;
+    private javax.swing.JTextField txtAlphabetAward;
+    private javax.swing.JTextField txtCommonwealth;
+    // End of variables declaration//GEN-END:variables
+}

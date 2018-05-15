@@ -1,0 +1,395 @@
+PersonName:Andrew Whitelaw@@@
+IntroText:Has participated in the above event and has communicated with a total of 2 Scouting contacts in 2 unique countries and has achieved the following levels:@@@
+AwardsText:America Award.		For making contact with at least one person in the Americas.
+Asia Award.		For making contact with at least one person in Asia.
+Bronze Alphabet Award.	For making contact with Countries beginning with 2 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:Bronze Commonwealth Award.	For making contact with 1 unique countries out of a maximum of 53 in the Commonwealth.@@@
+CountriesList:Canada
+Oman
+@@@
+AllContactsCounts:2
+0
+1
+1
+0
+0@@@
+AllContactsLevels:Starter
+Not Started
+Starter
+Starter
+Not Started
+Not Started@@@
+UniqueContactsCOunts:2
+0
+1
+1
+0
+0@@@
+UniqueContactsLevels:Starter
+Not Started
+Starter
+Starter
+Not Started
+Not StartedXXX
+PersonName:Lorna Whitelaw@@@
+IntroText:Has participated in the above event and has communicated with a total of 8 Scouting contacts in 6 unique countries and has achieved the following levels:@@@
+AwardsText:Africa Award.		For making contact with at least one person in Africa.
+America Award.		For making contact with at least one person in the Americas.
+Asia Award.		For making contact with at least one person in Asia.
+Australasia Award.	For making contact with at least one person in Australasia.
+Europe Award.		For making contact with at least one person in Europe.
+The Continent Award. 	For making at least one contact per populated continent.
+Silver Alphabet Award.	For making contact with Countries beginning with 5 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:Bronze Commonwealth Award.	For making contact with 4 unique countries out of a maximum of 53 in the Commonwealth.@@@
+CountriesList:Canada
+Cyprus
+France
+Indonesia
+New Zealand
+South Africa
+@@@
+AllContactsCounts:8
+1
+1
+1
+2
+3@@@
+AllContactsLevels:Beginner
+Starter
+Starter
+Starter
+Beginner
+Improver@@@
+UniqueContactsCOunts:6
+1
+1
+1
+1
+2@@@
+UniqueContactsLevels:Beginner
+Starter
+Starter
+Starter
+Starter
+BeginnerXXX
+PersonName:Tinyperson Smith@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Mark McAdams@@@
+IntroText:Has participated in the above event and has communicated with a total of 1 Scouting contacts in 1 unique countries and has achieved the following levels:@@@
+AwardsText:Asia Award.		For making contact with at least one person in Asia.
+Bronze Alphabet Award.	For making contact with Countries beginning with 1 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:Oman
+@@@
+AllContactsCounts:1
+0
+0
+1
+0
+0@@@
+AllContactsLevels:Starter
+Not Started
+Not Started
+Starter
+Not Started
+Not Started@@@
+UniqueContactsCOunts:1
+0
+0
+1
+0
+0@@@
+UniqueContactsLevels:Starter
+Not Started
+Not Started
+Starter
+Not Started
+Not StartedXXX
+PersonName:Alan Freeburn@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Wallace Gromit@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Matthew Freeburn@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Katie Freeburn@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Spongebob Squarepants@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Seam McDonald@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Edie Peattie-Lindsay@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:James Brown@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX
+PersonName:Graeme McGregor@@@
+IntroText:Has participated in the above event and has communicated with a total of 0 Scouting contacts in 0 unique countries and has achieved the following levels:@@@
+AwardsText:- Alphabet Award.	For making contact with Countries beginning with 0 of the 24 possible letters of the alphabet.@@@
+CommonwealthText:@@@
+CountriesList:@@@
+AllContactsCounts:0
+0
+0
+0
+0
+0@@@
+AllContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not Started@@@
+UniqueContactsCOunts:0
+0
+0
+0
+0
+0@@@
+UniqueContactsLevels:Not Started
+Not Started
+Not Started
+Not Started
+Not Started
+Not StartedXXX

@@ -1,0 +1,13 @@
+0	Not Started	0	Not Started	0	Not Started	0	Not Started	0	Not Started	0	Not Started
+1	Starter	1	Starter	1	Starter	1	Starter	1	Starter	1	Starter
+5	Beginner	2	Beginner	2	Beginner	2	Beginner	2	Beginner	2	Beginner
+10	Improver	3	Improver	3	Improver	3	Improver	3	Improver	3	Improver
+20	Collector	5	Collector	5	Collector	5	Collector	5	Collector	4	Collector
+25	Skilled	6	Skilled	7	Skilled	6	Skilled	6	Skilled	5	Skilled
+50	Expert	11	Expert	13	Expert	12	Expert	12	Expert	6	Expert
+75	Hero	16	Hero	19	Hero	18	Hero	17	Hero	7	Hero
+100	Guru	21	Guru	25	Guru	24	Guru	23	Guru	9	Guru
+150	Titan	32	Titan	38	Titan	36	Titan	34	Titan	13	Titan
+200	Superhero	42	Superhero	50	Superhero	48	Superhero	45	Superhero	18	Superhero
+254	Legend	53	Legend	63	Legend	60	Legend	56	Legend	22	Legend
+

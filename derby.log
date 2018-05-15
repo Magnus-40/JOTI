@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri May 11 17:23:14 BST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-5003-74d5-000002f1ecf8 
+on database directory C:\Users\andre\Dropbox\JOTI\JOTI_Logger\JOTI with class loader sun.misc.Launcher$AppClassLoader@4f023edb 
+Loaded from file:/C:/Users/andre/Dropbox/JOTI/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_101-b13
+user.dir=C:\Users\andre\Dropbox\JOTI\JOTI_Logger
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

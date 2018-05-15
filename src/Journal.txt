@@ -1,0 +1,124 @@
+Journal continued. Stupidly deleted the old journal and cannot recover it.
+
+31/08/2017
+1 Managed to get UpdatePerson working.Creates a list of menu item dropdowns, one for each person.
+2 Corrected the Update Person part of Person Manager.
+3 SectionListManager - edited to return sorted list
+4 Added menu item to edit and save Section names
+5 Minor updates to centre the forms on opening.
+6 Minor update to shut down application on closing main Form.
+
+01/09/2017
+1 Added commonwealth award and levels and supporting text. Added new field to award dialog
+2 Bug. Need to set the menu drop down of people to edit to unique people, currently listing all instances.
+Completed. a fix but not fixed the root cause. introduced an intermediate list for unique items
+3 
+
+04/09/2017
+ToDo 
+a Sort out file save pathname
+b Get viewContact menu item in Results working
+
+1 Pathname to current jar file fixed. Created a new method in Utils class to return the pathname of the currently running jar file.
+2 Got viewContact menu item in Results working.
+3 Added a menu item to select by person for viewing results.
+4 Corrected bug in Award level where exactly 1 contact resulted in an empty string. Corrected to >0 rather than >1.
+
+18/09/2017
+ToDo
+a Get a section metric created - get count of contacts by section and get list of contacts be section
+b Get summary created for FB posting updates
+
+1 Summary completed. New message box showing summary and data copied to clipboard.
+2 Section metric ongoing
+
+19/09/2017
+ToDo
+a Found a bug in the Edit Section code that allows the section name to be changed to null.
+
+1 Bug fix ongoing. Inserted null checks in edit code
+
+20/09/2017
+ToDo
+a Have the Countries and Awards objects as Singletons
+
+1 Singleton Classes created. Tests seem OK.
+2 Bug. Add new section button on add new person form does not refresh the form on adding new section.
+
+26/09/2017
+
+1 Singleton classes fixed. Recurrence of the nullpointer bug. I keep forgetting to instantiate the objects.
+2 New section working now
+3 Started to get output to the certificate
+
+28/09/2017
+ToDo
+a   'Delete a person' to be implemented
+b   JavaDoc update
+
+1   Updated JavaDocs
+2   Delete person routines underway. Person Selection form created and warnings in place.
+    Person removal. ON HOLD.
+
+04/10/2017
+ToDo
+a   Add the level to the certificate
+
+10/10/2017
+ToDo
+a   Javadoc
+b   Add a splash screen
+
+1   Javadoc updated
+2   Changed the Person drop-down menu builders to make the list sorted by surname
+3   Added the ability to print a single certificate by name
+
+11/10/2017
+1   Updated the delete Section routines to add checks to confirm of the Section Name exists prior to deletion
+
+12/10/2017
+Optimisation day. Goal is to streamline the code.
+
+1   Found and replaced a bug in Award.initMaps where uniqueLevels was initialised twice and allLevels no time. Fixed.
+
+16/10/2017
+1   Fixed bug in certificate (peoplelist) constructor where it called Certificate(Person) constructor which saved the file and opened Excel.
+2   Changed Results>view by person so that it displays a dialog summary and copied to clipboard.
+3   edited VBA in sheet to remove all sheets not names "Certificate"
+4   edited VBA to hide screen updating.
+
+20/10/2017
+Release Day.
+
+1   Bug in the Utils.addDataToCombo routine. loop terminated 1 country too early making the drop-downs miss the last country in every continent.
+
+09/05/2018
+1   Changed Certificate to allow direct editing via Apache POI. This is done via TextRuns
+1a  Edited spreadsheet to remove all VBA code.
+2   Added routines at allow printing certificates by Section.
+3   Bug where workbook in printcertificatebysection appears to be NULL. Fixed
+    Problem was that Certificate object had a workbook object but then created a new
+    Certificate for processing without a WB Object. Set new Cert WB = parent WB. Problem solved.
+
+10/05/2018
+1   Converted the PersonContact and CountryContact panels into TableModels. They 
+    now show the data much clearer and allow sorting etc.
+2   viewContacts now starts up with the pre-selected person.
+
+11/05/2018
+1   Changed Contacts per Country in Mainform to only show contacted countries
+
+14/05/2018
+1   Changed viewContact to TableModel.
+2   Got selected person and all contacts mode working in viewContacts.
+    Had to create a removeData method in the Model to clear old data before adding new data
+
+15/05/2018
+1   Unique Contacts in viewContact Form changed to tableModel
+2   Corrected bug in viewContact that pointed to backup Certificate instead of new Certificate Class.
+3   Bug in getContactedCountryList(), if(!contactedCountries.contains(cnt)){ 
+    where Contact List was being checked for Country Objects. Corrected by making
+    cnt, cnt.getMyCountry(). viewContacts now shows unique list
+
+TODO
+a   

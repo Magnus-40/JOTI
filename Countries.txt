@@ -1,0 +1,254 @@
+1	Akrotiri and Dhekelia	Europe	0
+2	Albania	Europe	0
+3	Andorra	Europe	0
+4	Armenia	Europe	0
+5	Austria	Europe	0
+6	Azerbaijan	Europe	0
+7	Belarus	Europe	0
+8	Belgium	Europe	0
+9	Bosnia & Herzegovina	Europe	0
+10	Bulgaria	Europe	0
+11	Croatia	Europe	0
+12	Cyprus	Europe	1
+13	Czech Republic	Europe	0
+14	Denmark	Europe	0
+15	Estonia	Europe	0
+16	Faroe Islands	Europe	0
+17	Finland	Europe	0
+18	France	Europe	0
+19	Georgia	Europe	0
+20	Germany	Europe	0
+21	Gibraltar	Europe	0
+22	Greece	Europe	0
+23	Guernsey	Europe	0
+24	Hungary	Europe	0
+25	Iceland	Europe	0
+26	Ireland	Europe	0
+27	Isle of Man	Europe	0
+28	Italy	Europe	0
+29	Jersey	Europe	0
+30	Kosovo	Europe	0
+31	Latvia	Europe	0
+32	Liechtenstein	Europe	0
+33	Lithuania	Europe	0
+34	Luxembourg	Europe	0
+35	Macedonia	Europe	0
+36	Malta	Europe	1
+37	Moldova	Europe	0
+38	Monaco	Europe	0
+39	Montenegro	Europe	0
+40	Norway	Europe	0
+41	Poland	Europe	0
+42	Portugal	Europe	0
+43	Romania	Europe	0
+44	Russia	Europe	0
+45	San Marino	Europe	0
+46	Serbia	Europe	0
+47	Slovakia	Europe	0
+48	Slovenia	Europe	0
+49	Spain	Europe	0
+50	Sweden	Europe	0
+51	Switzerland	Europe	0
+52	The Netherlands	Europe	0
+53	Turkey	Europe	0
+54	Ukraine	Europe	0
+55	United Kingdom	Europe	1
+56	Vatican City (Holy See)	Europe	0
+57	Algeria	Africa	0
+58	Angola	Africa	0
+59	Benin	Africa	0
+60	Botswana	Africa	1
+61	Burkina Faso	Africa	0
+62	Burundi	Africa	0
+63	Cameroon	Africa	1
+64	Canary Islands	Africa	0
+65	Cape Verde	Africa	0
+66	Central African Republic	Africa	0
+67	Ceuta	Africa	0
+68	Chad	Africa	0
+69	Comoros	Africa	0
+70	Cote d'Ivoire	Africa	0
+71	Democratic Republic of the Congo	Africa	0
+72	Djibouti	Africa	0
+73	Egypt	Africa	0
+74	Equatorial Guinea	Africa	0
+75	Eritrea	Africa	0
+76	Ethiopia	Africa	0
+77	French Southern and Antarctic Lands	Africa	0
+78	Gabon	Africa	0
+79	Gambia	Africa	0
+80	Ghana	Africa	1
+81	Guinea	Africa	0
+82	Guinea-Bissau	Africa	0
+83	Kenya	Africa	1
+84	Lesotho	Africa	1
+85	Liberia	Africa	0
+86	Libya	Africa	0
+87	Madagascar	Africa	0
+88	Madeira 	Africa	0
+89	Malawi	Africa	1
+90	Mali	Africa	0
+91	Mauritania	Africa	0
+92	Mauritius	Africa	1
+93	Mayotte	Africa	0
+94	Melilla 	Africa	0
+95	Morocco	Africa	0
+96	Mozambique	Africa	1
+97	Namibia	Africa	1
+98	Niger	Africa	0
+99	Nigeria	Africa	1
+100	Plazas de soberana 	Africa	0
+101	Republic of the Congo	Africa	0
+102	Reunion 	Africa	0
+103	Rwanda	Africa	1
+104	Saint Helena; Ascension and Tristan da Cunha (UK)	Africa	0
+105	Sao Tome and Principe	Africa	0
+106	Senegal	Africa	0
+107	Seychelles	Africa	1
+108	Sierra Leone	Africa	1
+109	Somalia	Africa	0
+110	South Africa	Africa	1
+111	South Sudan (Republic of South Sudan)	Africa	0
+112	Sudan	Africa	0
+113	Swaziland	Africa	1
+114	Tanzania	Africa	1
+115	Togo	Africa	0
+116	Tunisia	Africa	0
+117	Uganda	Africa	1
+118	Zambia	Africa	1
+119	Zimbabwe	Africa	0
+120	Anguilla	Americas	0
+121	Antigua and Barbuda	Americas	1
+122	Argentina	Americas	0
+123	Aruba	Americas	0
+124	Bahamas	Americas	1
+125	Barbados	Americas	1
+126	Belize	Americas	1
+127	Bermuda	Americas	0
+128	Bolivia	Americas	0
+129	Bonaire	Americas	0
+130	Brazil	Americas	0
+131	British Virgin Islands	Americas	0
+132	Canada	Americas	1
+133	Cayman Islands	Americas	0
+134	Chile	Americas	0
+135	Clipperton Island	Americas	0
+136	Colombia	Americas	0
+137	Costa Rica	Americas	0
+138	Cuba	Americas	0
+139	Curacao	Americas	0
+140	Dominica	Americas	1
+141	Dominican Republic	Americas	0
+142	Ecuador	Americas	0
+143	El Salvador	Americas	0
+144	Falkland Islands	Americas	0
+145	French Guiana	Americas	0
+146	Greenland	Americas	0
+147	Grenada	Americas	1
+148	Guadeloupe	Americas	0
+149	Guatemala	Americas	0
+150	Guyana	Americas	1
+151	Haiti	Americas	0
+152	Honduras	Americas	0
+153	Jamaica	Americas	1
+154	Martinique	Americas	0
+155	Mexico	Americas	0
+156	Montserrat	Americas	0
+157	Navassa Island	Americas	0
+158	Nicaragua	Americas	0
+159	Panama	Americas	0
+160	Paraguay	Americas	0
+161	Peru	Americas	0
+162	Puerto Rico	Americas	0
+163	Saba	Americas	0
+164	Saint Bartholemy	Americas	0
+165	Saint Kitts and Nevis	Americas	1
+166	Saint Lucia	Americas	1
+167	Saint Martin	Americas	0
+168	Saint Pierre and Miquelon	Americas	0
+169	Saint Vincent and the Grenadines	Americas	1
+170	Sint Eustatius	Americas	0
+171	Sint Maarten	Americas	0
+172	South Georgia and the South Sandwich Islands	Americas	0
+173	Suriname	Americas	0
+174	Trinidad and Tobago	Americas	1
+175	Turks and Caicos Islands	Americas	0
+176	United States Virgin Islands	Americas	0
+177	United States	Americas	0
+178	Uruguay	Americas	0
+179	Venezuela	Americas	0
+180	Australia	Australasia	1
+181	Fiji	Australasia	1
+182	Kiribati	Australasia	1
+183	Marshall Islands	Australasia	0
+184	Federated States of Micronesia	Australasia	0
+185	Nauru	Australasia	1
+186	New Zealand	Australasia	1
+187	Palau	Australasia	0
+188	Papua New Guinea	Australasia	1
+189	Samoa	Australasia	1
+190	Solomon Islands	Australasia	1
+191	Tonga	Australasia	1
+192	Tuvalu	Australasia	1
+193	Vanuatu	Australasia	1
+194	Easter Island	Australasia	0
+195	Hawaii	Australasia	0
+196	Juan Fernandez Islands	Australasia	0
+197	Marcus Island	Australasia	0
+198	Okinotori Islands	Australasia	0
+199	Palmyra Atoll	Australasia	0
+200	Papua	Australasia	0
+201	West Papua	Australasia	0
+202	Afghanistan	Asia	0
+203	Armenia	Asia	0
+204	Azerbaijan	Asia	0
+205	Bahrain	Asia	0
+206	Bangladesh	Asia	1
+207	Bhutan	Asia	0
+208	Brunei	Asia	1
+209	Cambodia	Asia	0
+210	China	Asia	0
+211	Christmas Island	Asia	0
+212	Cocos (Keeling) Islands	Asia	0
+213	Cyprus	Asia	1
+214	Georgia	Asia	0
+215	Hong Kong 	Asia	0
+216	India	Asia	1
+217	Indonesia	Asia	0
+218	Iran	Asia	0
+219	Iraq	Asia	0
+220	Israel	Asia	0
+221	Japan	Asia	0
+222	Jordan	Asia	0
+223	Kazakhstan	Asia	0
+224	Korea North	Asia	0
+225	Korea South	Asia	0
+226	Kuwait	Asia	0
+227	Kyrgyzstan	Asia	0
+228	Laos	Asia	0
+229	Lebanon	Asia	0
+230	Macau	Asia	0
+231	Malaysia	Asia	1
+232	Maldives	Asia	1
+233	Mongolia	Asia	0
+234	Myanmar	Asia	0
+235	Nepal	Asia	0
+236	Oman	Asia	0
+237	Pakistan	Asia	1
+238	Philippines	Asia	0
+239	Qatar	Asia	0
+240	Russia	Asia	0
+241	Saudi Arabia	Asia	0
+242	Singapore	Asia	1
+243	Sri Lanka	Asia	1
+244	Syria	Asia	0
+245	Taiwan	Asia	0
+246	Tajikistan	Asia	0
+247	Thailand	Asia	0
+248	Timor-Leste	Asia	0
+249	Turkey	Asia	0
+250	Turkmenistan	Asia	0
+251	United Arab Emirates	Asia	0
+252	Uzbekistan	Asia	0
+253	Vietnam	Asia	0
+254	Yemen	Asia	0
